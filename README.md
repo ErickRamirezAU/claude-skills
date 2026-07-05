@@ -127,11 +127,7 @@ If this repository gets updated later:
 **Claude doesn't seem to use the skill even though I installed it.**
 Make sure you copied/uploaded the *entire* skill folder (including its `scripts` subfolder), not just the `SKILL.md` file on its own — the skill needs both. Also try starting a new conversation, since skills are picked up at the start of a session.
 
-**"Homebrew is required but not installed" (Markitdown, Mac).**
-Install Homebrew from [brew.sh](https://brew.sh), then ask Claude to try the conversion again.
-
-**The YouTube skill says the API key is missing or invalid.**
-Double check you saved the key with the exact commands in the [YouTube Idea Finder README](skills/youtube-idea-finder/README.md), and that you opened a *new* terminal window/app session afterward — the key won't be picked up by windows that were already open.
+For skill-specific issues, check that skill's own README (linked from [Using the skills](#using-the-skills)) — it has its own Troubleshooting section.
 
 **I'm not sure which install option (A or B) applies to me.**
 If you talk to Claude through a website or a desktop app window with a normal chat interface, use Option A. If you type commands into a terminal to talk to Claude, use Option B.

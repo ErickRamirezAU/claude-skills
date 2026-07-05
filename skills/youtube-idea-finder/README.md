@@ -6,6 +6,8 @@ Searches YouTube for a topic and finds videos where the view count is unusually 
 
 The idea for this skill was inspired by [Shane Hummus](https://www.youtube.com/@ShaneHummus)'s YouTube videos on channel strategy and finding proven video ideas — this skill automates that "find videos overperforming their channel size" research.
 
+## Limitations
+
 > [!WARNING]
 > This skill only works in **Claude Code**. It needs real outbound network access to call the YouTube Data API, which isn't available in claude.ai's browser chat or in Cowork — both run in a sandboxed environment that only allows a fixed list of domains (github, pypi, npm, etc.), and the YouTube API isn't on that list.
 
@@ -59,15 +61,19 @@ Just mention the numbers you want in your prompt, e.g. "...with at least 200,000
 > "Find me small YouTube channels which had high performing videos talking about RAG application tutorial"
 
 **Response:**
+> Found 5 videos on "RAG application tutorial" that are overperforming their channel size (thresholds: min 100K views, max 100K subscribers, min 5:1 view-to-subscriber ratio):
+>
+> | Title | Views | Subscribers | Channel | Ratio | Link |
+> |---|---|---|---|---|---|
+> | LangChain Explained in 13 Minutes \| QuickStart Tutorial for Beginners | 1,119,601 | 36,000 | Rabbitmetrics | 31.1:1 | [link](https://www.youtube.com/watch?v=aywZrzNaKjs) |
+> | RAG vs MCP: Which One Makes AI Smarter? | 102,331 | 3,480 | CodeCraft Academy | 29.41:1 | [link](https://www.youtube.com/watch?v=7D1nUK9ONEY) |
+> | Python RAG Tutorial (with Local LLMs): AI For Your PDFs | 628,606 | 83,700 | pixegami | 7.51:1 | [link](https://www.youtube.com/watch?v=2TJxpyO3ei4) |
+> | You Can Learn AI Agent System Design In 19 Min \| RAG, Vector Database, Evals, Function Calling | 102,142 | 18,100 | Sean's AI Stories | 5.64:1 | [link](https://www.youtube.com/watch?v=CyLYY_xb5bQ) |
+> | RAG + Langchain Python Project: Easy AI/Chat For Your Docs | 471,339 | 83,700 | pixegami | 5.63:1 | [link](https://www.youtube.com/watch?v=tcqEUSNCn8I) |
+>
+> Hit the target count on the first search pass — no need to widen the search. Quota used: ~510 units out of the default 10,000/day.
 
-Found 5 videos on "RAG application tutorial" that are overperforming their channel size (thresholds: min 100K views, max 100K subscribers, min 5:1 view-to-subscriber ratio):
+## Troubleshooting
 
-| Title | Views | Subscribers | Channel | Ratio | Link |
-|---|---|---|---|---|---|
-| LangChain Explained in 13 Minutes \| QuickStart Tutorial for Beginners | 1,119,601 | 36,000 | Rabbitmetrics | 31.1:1 | [link](https://www.youtube.com/watch?v=aywZrzNaKjs) |
-| RAG vs MCP: Which One Makes AI Smarter? | 102,331 | 3,480 | CodeCraft Academy | 29.41:1 | [link](https://www.youtube.com/watch?v=7D1nUK9ONEY) |
-| Python RAG Tutorial (with Local LLMs): AI For Your PDFs | 628,606 | 83,700 | pixegami | 7.51:1 | [link](https://www.youtube.com/watch?v=2TJxpyO3ei4) |
-| You Can Learn AI Agent System Design In 19 Min \| RAG, Vector Database, Evals, Function Calling | 102,142 | 18,100 | Sean's AI Stories | 5.64:1 | [link](https://www.youtube.com/watch?v=CyLYY_xb5bQ) |
-| RAG + Langchain Python Project: Easy AI/Chat For Your Docs | 471,339 | 83,700 | pixegami | 5.63:1 | [link](https://www.youtube.com/watch?v=tcqEUSNCn8I) |
-
-Hit the target count on the first search pass — no need to widen the search. Quota used: ~510 units out of the default 10,000/day.
+**Claude says the API key is missing or invalid.**
+Double check you saved the key with the exact commands in [Prerequisites](#prerequisites) above, and that you opened a *new* terminal window/app session afterward — the key won't be picked up by windows that were already open.
