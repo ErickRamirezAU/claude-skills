@@ -4,15 +4,6 @@ A small collection of **Skills** for [Claude](https://claude.ai) — Anthropic's
 
 If you've never heard of Skills before: think of them as an instruction booklet you hand to Claude that teaches it how to do one specific job really well, step by step, using the right tools along the way. Without the booklet, Claude has to guess at the details each time. With it, Claude follows the exact process someone already figured out and tested.
 
-This repository contains a growing collection of such booklets. Currently available:
-
-| Skill | What it does |
-|---|---|
-| [`youtube-idea-finder`](skills/youtube-idea-finder) | Finds YouTube videos that "overperformed" — huge view counts from small, under-the-radar channels — for any topic you give it. Great for content research and finding hidden gems. |
-| [`markitdown`](skills/markitdown) | Converts files (PDFs, Word docs, PowerPoints, Excel sheets, images, audio, and more) into clean, readable, editable Markdown text. |
-
-More skills will be added over time — check back, or watch this repository on GitHub to be notified.
-
 No coding knowledge is required to use any of them — you just need Claude installed, and you'll copy a folder into place (or upload it, if you're using the app). Full steps below.
 
 ---
@@ -36,8 +27,6 @@ You don't need to understand how they work under the hood to use them — just i
   - [Option A — Claude Desktop or claude.ai (no terminal needed)](#option-a--claude-desktop-or-claudeai-no-terminal-needed)
   - [Option B — Claude Code (command line / IDE)](#option-b--claude-code-command-line--ide)
 - [Using the skills](#using-the-skills)
-  - [YouTube Idea Finder](#-youtube-idea-finder)
-  - [Markitdown](#-markitdown)
 - [Updating to a newer version](#updating-to-a-newer-version)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
@@ -111,63 +100,16 @@ Restart Claude Code (or start a new session) after copying the files so it notic
 
 ## Using the skills
 
-You don't need to "run" a skill directly — just ask Claude to do the task in plain English, and it'll recognize it should use the skill.
+This repository contains a growing collection of skills. Currently available:
 
-### 🔎 YouTube Idea Finder
+| Skill | What it does |
+|---|---|
+| [`youtube-idea-finder`](skills/youtube-idea-finder/README.md) | Finds YouTube videos that "overperformed" — huge view counts from small, under-the-radar channels — for any topic you give it. Great for content research and finding hidden gems. |
+| [`markitdown`](skills/markitdown/README.md) | Converts files (PDFs, Word docs, PowerPoints, Excel sheets, images, audio, and more) into clean, readable, editable Markdown text. |
 
-**What it does:** Searches YouTube for a topic and finds videos where the view count is unusually high compared to how many subscribers the channel has — a sign of a small creator who unexpectedly went viral. Useful for content research, finding collaborators, or scouting a niche.
+More skills will be added over time — check back, or watch this repository on GitHub to be notified.
 
-The idea for this skill was inspired by [Shane Hummus](https://www.youtube.com/@ShaneHummus)'s YouTube videos on channel strategy and finding proven video ideas — this skill automates that "find videos overperforming their channel size" research.
-
-**Compatibility:** this skill only works in **Claude Code**. It needs real outbound network access to call the YouTube Data API, which isn't available in claude.ai's browser chat or in Cowork — both run in a sandboxed environment that only allows a fixed list of domains (github, pypi, npm, etc.), and the YouTube API isn't on that list.
-
-**Before your first use — get a free API key:**
-This skill needs a YouTube Data API key from Google. It's free and doesn't require a credit card.
-
-1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
-2. Create a project (or use an existing one).
-3. Enable the **YouTube Data API v3**.
-4. Go to **APIs & Services → Credentials → Create Credentials → API key** and copy the key it gives you.
-
-Then save it so Claude can find it:
-
-- **macOS:** Open the **Terminal** app, and run:
-  ```
-  echo 'export YOUTUBE_API_KEY="paste-your-key-here"' >> ~/.zshenv
-  ```
-  Then close and reopen Terminal (or the app running Claude).
-
-- **Windows:** Open **PowerShell**, and run:
-  ```
-  setx YOUTUBE_API_KEY "paste-your-key-here"
-  ```
-  Close and reopen the terminal/app for it to take effect.
-
-**Try it by asking Claude something like:**
-> "Find me small YouTube channels that blew up talking about home coffee roasting."
-
-Claude will tell you what search settings it's using (minimum views, max subscribers, etc.) before running the search, and hand back a table of results with links.
-
-### 📄 Markitdown
-
-**What it does:** Converts a file — PDF, Word document, PowerPoint, Excel spreadsheet, image, audio file, webpage, and more — into clean Markdown text that's easy to read or edit. It also offers to clean up common conversion glitches (broken sentences, missing headings) before finalizing anything, and always asks before overwriting a file.
-
-This skill is a wrapper around Microsoft's open-source [`markitdown`](https://github.com/microsoft/markitdown) conversion tool — all credit for the actual file conversion goes to that project. This skill just adds the automatic install and the before/after cleanup review on top of it.
-
-**Requirements:** The first time you use it, it installs a small free tool it depends on automatically — provided one baseline tool is already on your machine (true for almost everyone, but see the fallback below if not):
-
-- **macOS** — needs [Homebrew](https://brew.sh). If missing, the skill will tell you and link you to install it, or you can run `pip install "markitdown[all]"` yourself.
-- **Linux** (including WSL) — needs `pip`, `pip3`, or `pipx` (standard on virtually every Linux install). If none are found, install Python's pip (e.g. `sudo apt install python3-pip` on Debian/Ubuntu) and try again.
-- **Windows** — needs Python already installed. If missing, install it from [python.org](https://python.org) (tick "Add python.exe to PATH" during setup) and try again.
-
-**Try it by asking Claude something like:**
-> "Convert this PDF to Markdown for me" (attach or point to the file)
-
-Claude will find the file, convert it, and show you a before/after of any cleanup it suggests — nothing gets overwritten without your OK.
-
-**Running this in claude.ai (no Claude Code needed):** unlike Claude Code, browser chat doesn't keep an installed skill "switched on" in the background — you attach the skill's files to the specific request instead:
-1. Attach the skill's `SKILL.md` and `scripts/ensure_markitdown.sh` files, along with the file you want converted, to your message.
-2. Ask something like: "Using the attached skill and script, convert this PDF."
+You don't need to "run" a skill directly — just ask Claude to do the task in plain English once it's installed. See each skill's own README (linked above) for what it does, its requirements, compatibility notes, and example prompts.
 
 ---
 
@@ -189,7 +131,7 @@ Make sure you copied/uploaded the *entire* skill folder (including its `scripts`
 Install Homebrew from [brew.sh](https://brew.sh), then ask Claude to try the conversion again.
 
 **The YouTube skill says the API key is missing or invalid.**
-Double check you saved the key with the exact commands above, and that you opened a *new* terminal window/app session afterward — the key won't be picked up by windows that were already open.
+Double check you saved the key with the exact commands in the [YouTube Idea Finder README](skills/youtube-idea-finder/README.md), and that you opened a *new* terminal window/app session afterward — the key won't be picked up by windows that were already open.
 
 **I'm not sure which install option (A or B) applies to me.**
 If you talk to Claude through a website or a desktop app window with a normal chat interface, use Option A. If you type commands into a terminal to talk to Claude, use Option B.
@@ -201,10 +143,7 @@ If you talk to Claude through a website or a desktop app window with a normal ch
 Contributions are welcome — whether that's fixing a typo, improving a skill's instructions, or adding a brand new skill.
 
 - **Found a bug or have an idea?** Open an [issue](../../issues) describing what's wrong or what you'd like to see.
-- **Want to submit a change yourself?**
-  1. Fork this repository and create a new branch.
-  2. Make your change. If you're editing an existing skill, please actually try it with Claude first to confirm it still works as expected. If you're adding a new skill, follow the same folder layout used here (a folder under `skills/` containing a `SKILL.md` and any supporting `scripts/`).
-  3. Open a pull request describing what changed and why.
+- **Want to submit a change yourself?** See [instructions for contributing](CONTRIBUTING.md).
 
 You don't need to be a programmer to contribute — improving the plain-English wording in a `SKILL.md` file or in this README is just as valuable as a code change.
 
