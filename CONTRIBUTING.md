@@ -24,6 +24,7 @@ Every skill's `README.md` should follow the same section order, so a reader who'
 3. `## Sample output` — a real example (a prompt and the actual response it produced), not an invented one. If you don't have a real run to draw from, ask before publishing a fabricated one.
 
 **Optional, include only if relevant, in this order:**
+
 4. `## Limitations` — environments or scenarios where the skill doesn't work, using a `> [!WARNING]` callout for anything that would silently fail otherwise.
 5. `## Prerequisites` — setup required before first use (API keys, installed tools, accounts).
 6. `## Options` — configurable parameters, presented as a table of Option / Default / What it controls, mirroring the Inputs table in `SKILL.md` if one exists.
