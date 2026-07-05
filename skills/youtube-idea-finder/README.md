@@ -9,7 +9,7 @@ The idea for this skill was inspired by [Shane Hummus](https://www.youtube.com/@
 > [!WARNING]
 > This skill only works in **Claude Code**. It needs real outbound network access to call the YouTube Data API, which isn't available in claude.ai's browser chat or in Cowork — both run in a sandboxed environment that only allows a fixed list of domains (github, pypi, npm, etc.), and the YouTube API isn't on that list.
 
-## Before your first use — get a free API key
+## Prerequisites
 
 This skill needs a YouTube Data API key from Google. It's free and doesn't require a credit card.
 
@@ -38,6 +38,20 @@ Then save it so Claude can find it:
 > "Find me small YouTube channels that blew up talking about home coffee roasting."
 
 Claude will tell you what search settings it's using (minimum views, max subscribers, etc.) before running the search, and hand back a table of results with links.
+
+## Options
+
+The only thing you need to give the skill is your search topic — everything else has a sensible default, but you can ask Claude for different numbers if you want:
+
+| Option | Default | What it controls |
+|---|---|---|
+| Minimum views | 100,000 | The "overperformance" floor |
+| Maximum subscribers | 100,000 | Keeps results to small/mid channels |
+| Minimum views : subscribers ratio | 5 : 1 | The core "punching above their weight" signal |
+| Number of candidates to find | 5 | Stop once you hit this many |
+| Max search pages | 5 | Quota safety cap for the free daily API quota |
+
+Just mention the numbers you want in your prompt, e.g. "...with at least 200,000 views and a 10:1 ratio."
 
 ## Sample output
 
