@@ -18,6 +18,11 @@ Convert a source file to Markdown, save it next to the source, and — only
 with explicit approval — clean up formatting artifacts left over from the
 conversion.
 
+This skill wraps [markitdown](https://github.com/microsoft/markitdown),
+Microsoft's open-source CLI for converting files to Markdown — all credit
+for the actual conversion goes to that project. This skill only adds the
+install-and-fix-up workflow around it.
+
 ## Step 1: Resolve the input
 
 The input may arrive as an attached file, a bare filename, or a full path.
@@ -31,15 +36,27 @@ The input may arrive as an attached file, a bare filename, or a full path.
 ## Step 2: Make sure markitdown is installed
 
 Run `scripts/ensure_markitdown.sh`. It checks whether `markitdown` is on
-PATH (or already installed at `~/.local/bin/markitdown`) and, if not,
-installs it automatically via Homebrew (`python@3.12`, `pipx`) and
-`pipx install markitdown[all]` — no need to ask before installing. This
-mirrors how it was set up the first time, so re-running it on a machine that
+PATH, already installed at `~/.local/bin/markitdown`, or importable as a
+Python module even without a console-script entrypoint (covers venvs,
+system package managers, and non-standard pip installs) — and only installs
+it if none of those find it. No need to ask before installing. This mirrors
+how it was set up the first time, so re-running it on a machine that
 already has markitdown is a fast no-op.
 
-If the script fails (e.g., no Homebrew available), surface the error to the
-user rather than trying alternate install methods — the failure usually
-means something about the machine needs their attention first.
+The install path is platform-aware:
+- **macOS** uses Homebrew (`python@3.12`, `pipx`), the reliable standard there.
+- **Linux** (including WSL, which reports as Linux) prefers `pipx`/`pip3`/`pip`
+  directly and never requires Homebrew, since most Linux users won't have it.
+- **Native Windows** (Git Bash/MSYS/Cygwin, not WSL) looks for `python3`,
+  `python`, or the `py` launcher, uses `pipx` if present or `pip install
+  --user` otherwise, and checks `%APPDATA%\Python\PythonXY\Scripts` for the
+  installed executable — pip's Windows install location, which isn't
+  `~/.local/bin`.
+
+If the script still fails after that, surface the error to the user rather
+than trying alternate install methods — the failure usually means something
+about the machine needs their attention first (e.g. no pip available at
+all).
 
 **Important:** each shell command you run is typically a fresh process, so
 a `PATH` fix made by the script doesn't carry over to the next command.

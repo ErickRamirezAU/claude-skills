@@ -5,6 +5,10 @@ description: Finds YouTube videos that are "overperforming" for their channel si
 
 # YouTube Idea Finder
 
+Idea and name credit: inspired by [Shane Hummus](https://www.youtube.com/@ShaneHummus)'s
+YouTube videos on channel strategy and finding proven video ideas — this skill
+automates that "find videos overperforming their channel size" research.
+
 Find videos on a given topic where the view count is large relative to the
 channel's subscriber count — a signal that a small or unknown creator produced
 something that broke out beyond their usual audience. This uses the YouTube

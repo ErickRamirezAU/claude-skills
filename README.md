@@ -117,6 +117,8 @@ You don't need to "run" a skill directly — just ask Claude to do the task in p
 
 **What it does:** Searches YouTube for a topic and finds videos where the view count is unusually high compared to how many subscribers the channel has — a sign of a small creator who unexpectedly went viral. Useful for content research, finding collaborators, or scouting a niche.
 
+The idea for this skill was inspired by [Shane Hummus](https://www.youtube.com/@ShaneHummus)'s YouTube videos on channel strategy and finding proven video ideas — this skill automates that "find videos overperforming their channel size" research.
+
 **Before your first use — get a free API key:**
 This skill needs a YouTube Data API key from Google. It's free and doesn't require a credit card.
 
@@ -148,13 +150,13 @@ Claude will tell you what search settings it's using (minimum views, max subscri
 
 **What it does:** Converts a file — PDF, Word document, PowerPoint, Excel spreadsheet, image, audio file, webpage, and more — into clean Markdown text that's easy to read or edit. It also offers to clean up common conversion glitches (broken sentences, missing headings) before finalizing anything, and always asks before overwriting a file.
 
-**Requirements:** The first time you use it, it automatically installs a small free tool it depends on. This install step currently works automatically on:
-- **macOS** (via [Homebrew](https://brew.sh) — if you don't have Homebrew, the skill will tell you and link you to install it first)
-- **Linux**
+This skill is a wrapper around Microsoft's open-source [`markitdown`](https://github.com/microsoft/markitdown) conversion tool — all credit for the actual file conversion goes to that project. This skill just adds the automatic install and the before/after cleanup review on top of it.
 
-**Windows note:** the automatic installer is a Mac/Linux tool and won't run in a native Windows terminal. Windows users have two options:
-1. Use **WSL** (Windows Subsystem for Linux) — inside WSL, the automatic install works exactly as it does on Mac/Linux.
-2. Install the underlying tool manually via Python: open PowerShell and run `pip install "markitdown[all]"`, then tell Claude to skip straight to the conversion step.
+**Requirements:** The first time you use it, it installs a small free tool it depends on automatically — provided one baseline tool is already on your machine (true for almost everyone, but see the fallback below if not):
+
+- **macOS** — needs [Homebrew](https://brew.sh). If missing, the skill will tell you and link you to install it, or you can run `pip install "markitdown[all]"` yourself.
+- **Linux** (including WSL) — needs `pip`, `pip3`, or `pipx` (standard on virtually every Linux install). If none are found, install Python's pip (e.g. `sudo apt install python3-pip` on Debian/Ubuntu) and try again.
+- **Windows** — needs Python already installed. If missing, install it from [python.org](https://python.org) (tick "Add python.exe to PATH" during setup) and try again.
 
 **Try it by asking Claude something like:**
 > "Convert this PDF to Markdown for me" (attach or point to the file)
@@ -199,6 +201,8 @@ Contributions are welcome — whether that's fixing a typo, improving a skill's 
   3. Open a pull request describing what changed and why.
 
 You don't need to be a programmer to contribute — improving the plain-English wording in a `SKILL.md` file or in this README is just as valuable as a code change.
+
+If you'd like to discuss contributions, do a collab or just chat, you can get in touch with me at the coordinates listed on my website [8567.me](https://8567.me).
 
 ---
 
