@@ -41,7 +41,7 @@ You need **one** of the following (not both):
 - **Claude Desktop app or claude.ai in your browser**, with a Claude account — this is the easiest route and works the same on Mac and Windows, or
 - **Claude Code** (the terminal/developer tool) installed on your computer — this route involves copying a folder into a hidden system folder, which is slightly more technical but only takes a minute.
 
-If you're not sure which one you use, and you just chat with Claude in a browser tab or a desktop app window, you're using option A.
+If you're not sure which one you use, and you just chat with Claude in a browser tab or a desktop app window, you're using [option A](#option-a--claude-desktop-or-claudeai-no-terminal-needed).
 
 ---
 
