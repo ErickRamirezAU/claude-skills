@@ -4,14 +4,16 @@ A small collection of **Skills** for [Claude](https://claude.ai) — Anthropic's
 
 If you've never heard of Skills before: think of them as an instruction booklet you hand to Claude that teaches it how to do one specific job really well, step by step, using the right tools along the way. Without the booklet, Claude has to guess at the details each time. With it, Claude follows the exact process someone already figured out and tested.
 
-This repository contains two such booklets:
+This repository contains a growing collection of such booklets. Currently available:
 
 | Skill | What it does |
 |---|---|
 | [`youtube-idea-finder`](skills/youtube-idea-finder) | Finds YouTube videos that "overperformed" — huge view counts from small, under-the-radar channels — for any topic you give it. Great for content research and finding hidden gems. |
 | [`markitdown`](skills/markitdown) | Converts files (PDFs, Word docs, PowerPoints, Excel sheets, images, audio, and more) into clean, readable, editable Markdown text. |
 
-No coding knowledge is required to use either one — you just need Claude installed, and you'll copy a folder into place (or upload it, if you're using the app). Full steps below.
+More skills will be added over time — check back, or watch this repository on GitHub to be notified.
+
+No coding knowledge is required to use any of them — you just need Claude installed, and you'll copy a folder into place (or upload it, if you're using the app). Full steps below.
 
 ---
 
@@ -65,7 +67,7 @@ You don't need to know Git or the command line for this part.
    - **Mac**: double-clicking unzips it automatically into a folder called `claude-skills-main`.
    - **Windows**: right-click the ZIP file and choose **Extract All...**, then choose a location and click **Extract**.
 
-Inside, you'll find a `skills` folder containing one folder per skill (`youtube-idea-finder` and `markitdown`). Each of those folders is the whole skill — you'll use the entire folder, not a single file inside it.
+Inside, you'll find a `skills` folder containing one folder per skill (e.g. `youtube-idea-finder`, `markitdown`, and any others that have been added since). Each of those folders is the whole skill — you'll use the entire folder, not a single file inside it.
 
 *(If you're comfortable with Git, you can instead run `git clone` on this repository's URL — same result, faster to update later.)*
 
@@ -80,7 +82,7 @@ Inside, you'll find a `skills` folder containing one folder per skill (`youtube-
 3. Look for a section called **Capabilities** or **Skills** (the exact wording may shift slightly as Claude updates, but it will be under Settings).
 4. Choose **Upload a skill** (or similar) and select the skill folder you unzipped in Step 1 — e.g. `youtube-idea-finder` or `markitdown`.
    - If the uploader asks for a `.zip` file specifically rather than a folder, right-click the skill's folder and choose **Compress** (Mac) or **Send to → Compressed (zipped) folder** (Windows), then upload that instead.
-5. Repeat for the second skill if you want both.
+5. Repeat for each additional skill you want to use.
 
 That's it — the skill is now available whenever you chat with Claude.
 
@@ -92,7 +94,7 @@ Claude Code looks for skills in a specific folder on your computer. Copy each sk
   ```
   ~/.claude/skills/
   ```
-  In Finder, press `Cmd+Shift+G`, type `~/.claude/skills`, and drag the `youtube-idea-finder` and/or `markitdown` folders in. If the `skills` folder doesn't exist yet, create it.
+  In Finder, press `Cmd+Shift+G`, type `~/.claude/skills`, and drag in whichever skill folder(s) you want (e.g. `youtube-idea-finder`, `markitdown`). If the `skills` folder doesn't exist yet, create it.
 
 - **Windows (running Claude Code natively):**
   ```
