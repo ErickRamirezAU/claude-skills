@@ -119,6 +119,8 @@ You don't need to "run" a skill directly — just ask Claude to do the task in p
 
 The idea for this skill was inspired by [Shane Hummus](https://www.youtube.com/@ShaneHummus)'s YouTube videos on channel strategy and finding proven video ideas — this skill automates that "find videos overperforming their channel size" research.
 
+**Compatibility:** this skill only works in **Claude Code**. It needs real outbound network access to call the YouTube Data API, which isn't available in claude.ai's browser chat or in Cowork — both run in a sandboxed environment that only allows a fixed list of domains (github, pypi, npm, etc.), and the YouTube API isn't on that list.
+
 **Before your first use — get a free API key:**
 This skill needs a YouTube Data API key from Google. It's free and doesn't require a credit card.
 
@@ -162,6 +164,10 @@ This skill is a wrapper around Microsoft's open-source [`markitdown`](https://gi
 > "Convert this PDF to Markdown for me" (attach or point to the file)
 
 Claude will find the file, convert it, and show you a before/after of any cleanup it suggests — nothing gets overwritten without your OK.
+
+**Running this in claude.ai (no Claude Code needed):** unlike Claude Code, browser chat doesn't keep an installed skill "switched on" in the background — you attach the skill's files to the specific request instead:
+1. Attach the skill's `SKILL.md` and `scripts/ensure_markitdown.sh` files, along with the file you want converted, to your message.
+2. Ask something like: "Using the attached skill and script, convert this PDF."
 
 ---
 
