@@ -105,7 +105,7 @@ This repository contains a growing collection of skills. Currently available:
 | Skill | What it does |
 |---|---|
 | [`youtube-idea-finder`](skills/youtube-idea-finder/README.md) | Finds YouTube videos that "overperformed" — huge view counts from small, under-the-radar channels — for any topic you give it. Great for content research and finding hidden gems. |
-| [`markitdown`](skills/markitdown/README.md) | Converts files (PDFs, Word docs, PowerPoints, Excel sheets, images, audio, and more) into clean, readable, editable Markdown text. |
+| [`markitdown`](skills/markitdown/README.md) | A wrapper around Microsoft's open-source `markitdown` tool that converts files (PDFs, Word docs, PowerPoints, Excel sheets, images, audio, and more) into clean, readable, editable Markdown text. |
 
 More skills will be added over time — check back, or watch this repository on GitHub to be notified.
 

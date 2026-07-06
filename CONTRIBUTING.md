@@ -21,7 +21,7 @@ Every skill's `README.md` should follow the same section order, so a reader who'
 **Required:**
 1. `## What it does` — a plain-English description of the task.
 2. `## Usage` — how to invoke it (a realistic example prompt), and what to expect back.
-3. `## Sample output` — a real example (a prompt and the actual response it produced), not an invented one. If you don't have a real run to draw from, ask before publishing a fabricated one.
+3. `## Sample output` — a real example (a prompt and the actual response it produced), not an invented one. Format the prompt and the response as markdown blockquotes (`>`) so it's visually clear they're an example transcript, not part of the README's own text.
 
 **Optional, include only if relevant, in this order:**
 
