@@ -1,0 +1,18 @@
+name: New skill idea
+description: Suggest a new skill, or an improvement to an existing one
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What should the skill do?
+      description: Describe the task in plain English, as if explaining it to a new employee.
+      placeholder: "e.g. Find every podcast episode that mentions a given guest name, across a list of shows."
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why would this be useful?
+    validations:
+      required: false
