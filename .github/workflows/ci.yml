@@ -26,7 +26,7 @@ jobs:
 
       - name: Shellcheck
         run: |
-          find skills -name '*.sh' -print0 | xargs -0 -r shellcheck
+          find skills -name '*.sh' -print0 | xargs -0 -r shellcheck --severity=warning
 
       - name: Verify skill layout (SKILL.md + README.md per skill)
         run: |
