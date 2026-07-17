@@ -1,5 +1,14 @@
 # claude-skills
 
+[![claude](https://img.shields.io/badge/claude-blue)](https://github.com/topics/claude)
+[![claude-ai](https://img.shields.io/badge/claude--ai-blue)](https://github.com/topics/claude-ai)
+[![claude-skills](https://img.shields.io/badge/claude--skills-blue)](https://github.com/topics/claude-skills)
+[![ai](https://img.shields.io/badge/ai-blue)](https://github.com/topics/ai)
+[![automation](https://img.shields.io/badge/automation-blue)](https://github.com/topics/automation)
+[![youtube](https://img.shields.io/badge/youtube-blue)](https://github.com/topics/youtube)
+[![markdown](https://img.shields.io/badge/markdown-blue)](https://github.com/topics/markdown)
+[![productivity](https://img.shields.io/badge/productivity-blue)](https://github.com/topics/productivity)
+
 A small collection of **Skills** for [Claude](https://claude.ai) — Anthropic's AI assistant.
 
 If you've never heard of Skills before: think of them as an instruction booklet you hand to Claude that teaches it how to do one specific job really well, step by step, using the right tools along the way. Without the booklet, Claude has to guess at the details each time. With it, Claude follows the exact process someone already figured out and tested.
@@ -141,6 +150,7 @@ Contributions are welcome — whether that's fixing a typo, improving a skill's 
 
 - **Found a bug or have an idea?** Open an [issue](../../issues) describing what's wrong or what you'd like to see.
 - **Want to submit a change yourself?** See [instructions for contributing](CONTRIBUTING.md).
+- **Found a security issue?** Please don't open a public issue — see our [Security Policy](.github/SECURITY.md) for how to report it privately.
 
 You don't need to be a programmer to contribute — improving the plain-English wording in a `SKILL.md` file or in this README is just as valuable as a code change.
 
